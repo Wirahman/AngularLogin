@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-compact">
+            <caption>
+                <div class="card">
+                    <div class="form-group">
+                        <label for="search-text">Search Text</label>
+                        <input type="email" class="form-control" id="search-text" aria-describedby="search-text" 
+                        [(ngModel)]="searchText" placeholder="Enter text to search" 
+                        autofocus>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <!-- results of ngFor is passed to appFilter with argument searchText -->
+                        <li class="list-group-item" *ngFor="let c of characters | appFilter: searchText">
+                        {{c}}
+                        </li>
+                    </ul>
+                </div>
+                *Masukan kata "the" untuk melakukan pencarian
+    
+            </caption>
+
+
+
+
+
+
+
+            <thead>
+                <th>No</th>
+                <th>Nama Pengguna</th>
+                <th>Password</th>
+                <th>Nama Lengkap</th>
+                <th>Kota</th>
+                <th>Status</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of pengguna | paginate : {
+                    itemsPerPage: pageSize,
+                    currentPage: page,
+                    totalItems: count
+                }; let i = index" [class.active]="i == currentIndex">
+                    <td>{{i + 1}}</td>
+                    <td>
+                    <a (mouseover)="detailPengguna(row.id,row.nama_pengguna,row.password,row.nama_lengkap,row.kota, row.status)" class='btn btn-info m-r-5px'>{{row.nama_pengguna}}</a>
+                    </td>
+                    <td>{{row.nama_pengguna}}</td>
+                    <td>{{row.password}}</td>
+                    <td>{{row.nama_lengkap}}</td>
+                    <td>{{row.kota}}</td>
+                    <td>{{row.status}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-12">
+      <pagination-controls
+       previousLabel="Prev" 
+       nextLabel="Next" 
+       [responsive]="true" 
+       (pageChange)="handlePageChange($event)">
+      </pagination-controls>
+    </div>
+</div>
+<app-modals></app-modals>

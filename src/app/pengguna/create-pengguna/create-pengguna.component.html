@@ -1,0 +1,35 @@
+<div class="create-pengguna">
+    <form [formGroup]="formPengguna" (ngSubmit) = "onCreatePengguna()">
+        <p style="white-space: pre-wrap;">
+            <clr-control-container style="width:20%;">
+                <label>Email</label>
+                <input id="email" name="email" type="email" class="form-control" placeholder="Email" formControlName="email" [(ngModel)]="pengguna.email" (ngModelChange)="periksaAlert($event)" style="width:80%;" clrControl required >
+                <clr-control-error *clrIfError="'required'">Required</clr-control-error>
+                <clr-control-error *clrIfError="'email'">Invalid Email</clr-control-error>
+            </clr-control-container>
+            
+            <clr-control-container style="width:20%;">
+                <label>Nama Depan</label>
+                <input id="first_name" name="first_name" type="text" class="form-control" placeholder="Nama Depan" formControlName="first_name" [(ngModel)]="pengguna.first_name" (ngModelChange)="periksaAlert($event)" style="width:80%;" clrControl required >
+                <clr-control-error *clrIfError="'required'">Required</clr-control-error>
+            </clr-control-container>
+            
+            <clr-control-container style="width:20%;">
+                <label>Nama Belakang</label>
+                <input id="last_name" name="last_name" type="text" class="form-control" placeholder="Nama Belakang" formControlName="last_name" [(ngModel)]="pengguna.last_name" (ngModelChange)="periksaAlert($event)" style="width:80%;" clrControl required >
+                <clr-control-error *clrIfError="'required'">Required</clr-control-error>
+            </clr-control-container>
+            
+            <clr-control-container style="width:20%;">
+                <label>Avatar</label>
+                <input id="avatar" name="avatar" type="text" class="form-control" placeholder="Avatar" formControlName="avatar" [(ngModel)]="pengguna.avatar" (ngModelChange)="periksaAlert($event)" style="width:80%;" clrControl required >
+                <clr-control-error *clrIfError="'required'">Required</clr-control-error>
+                <clr-control-error *clrIfError="'minlength'">Avatar Minimal harus 10 Karakter</clr-control-error>
+                <clr-control-error *clrIfError="'maxlength'">Karakter Avatar Maksimar 50 Karakter</clr-control-error>
+            </clr-control-container>
+            
+            <button type="submit" class="btn btn-primary" [disabled]="buttonSave">Simpan</button>&#160;&#160;
+            <button type="reset" class="btn btn-danger" (click)="cancel()">Batal</button>
+        </p>
+    </form>
+</div>

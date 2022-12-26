@@ -1,0 +1,10 @@
+2. 
+Array ( [0] => A:C:1A:0 [3] => B:b [4] => A:3 [5] => B:C:a [7] => B:o ) 
+
+3. 
+Null = Sebuah parameter yang memiliki nilai kosong atau tidak ada
+Undefined = Variabel sudah dideklarasikan namun belum didefinisikan nilainya.
+Undeclared = Variabel yang sudah diinisiasi tanpa menggunakan keyword deklarasi variabel
+
+4. 
+Untuk javascript bisa di print menggunakan console.log dan melihat nilainya pada konsol ketika inspect element
